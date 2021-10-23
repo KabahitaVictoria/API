@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Form</title>
+    <link rel="stylesheet" href="../public/event.css">
+</head>
+<body>
+    <form id="form" action="." method="post">
+        <h1>SignUp</h1>
+        <label for="UserName">UserName:</label>
+        <input type="text" name="username"  required id="username" placeholder="Jane Doe"> <br> <br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required id="email" placeholder="janedoe@server.com"> <br> <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required id="password" placeholder="************"> <br> <br>
+        <input type="submit" value="SignUp"> <br> <br>
+        <label for="visible" class="container">
+            <input type="checkbox" name="showPassword" id="visible">
+            <span class="checkmark"></span>
+            Show Password 
+        </label>
+        <span id="span"></span>
+    </form>
+    <script src="../public/event.js"></script>
+</body>
+</html>
