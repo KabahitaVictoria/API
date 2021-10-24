@@ -1,24 +1,18 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const path = require('path');
+const path = require('path'); //have to provide absolute path for file using path module
 
-app.use(express.static('./public'))
+app.use('/static', express.static('public'));
 
-//make a request
-app.get('/',(req,res)=>{ //the root; where your app will start.
-    return res.sendFile(path.resolve(__dirname,'./navbar-app/index.html'))
-})
-
-app.get('/about',(req,res)=>{
-    return res.send('<h1> About page </h1>')
+app.get('/',(req,res)=>{ //if user searches for page
+    res.status(200).sendFile(path.resolve(__dirname,'./navbar-app/index.html')) //what we send back to them 
 })
 
 app.all('*',(req,res)=>{
-    return res.status(404).send('<h2> Sorry, resource not found! </h2>')
+    res.status(404).send('Sorry, resource not found!')
 })
 
-//spin up express server
-app.listen(port, ()=>{
-    console.log(`Sample app listening at http://localhost:${port}`);
+app.listen(port,()=>{
+console.log(`Server is listening at port: ${port}`);
 })
